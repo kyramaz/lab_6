@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string Func(int n)
+/*string Func(int n)
 {
     if (n > 10)
     {
@@ -13,26 +13,22 @@ string Func(int n)
     {
         return string("bye");
     }
-}
+}*/
 
-void Fill_Mat(int x,int y, int mat[100][100])
+int fill_Mat(int x, int y, int matrix[100][100])
 {
-    cout << "Введите количество строк";
-    cin >> x;
-    cout << "Введите количество столбцов";
-    cin >> y;
-
     for (int i = 0; i < x; i++)
     {
         for (int j = 0; j < y; j++)
         {
-            cout << "Введите элемент " << i << "строки" << j << "столбца.";
-            cin >> mat[i][j];
+            cout << "Введите элемент " << i+1 << " строки " << j+1 << " столбца." << endl;
+            cin >> matrix[i][j];
         }
     }
+    return matrix[x][y];
 }
 
-bool Same_column(int x, int y, int mat[100][100], int count, bool flag)
+/*int Same_column(int x, int y, int mat[100][100], int count, bool flag)
 {
     for (int i = 0; i < x; i++)
     {
@@ -52,17 +48,33 @@ bool Same_column(int x, int y, int mat[100][100], int count, bool flag)
             }
         }
     }
-}
+}*/
 
 
 int main()
 {
-    int lines;
-    int columns;
+    setlocale(LC_ALL, "rus");
+    int lines{};
+    int columns{};
     int mat[100][100];
     bool Flag_column = false;
 
-    Fill_Mat(lines, columns, mat);
+    cout << "Введите количество строк" << endl;
+    cin >> lines;
+
+    cout << "Введите количество столбцов" << endl;
+    cin >> columns;
+
+    fill_Mat(lines, columns, mat);
+
+    for (int i = 0; i < lines; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+    }
 
 }
 
