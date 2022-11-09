@@ -1,1 +1,1 @@
-# This is lab#6
+# This is lab_6.
