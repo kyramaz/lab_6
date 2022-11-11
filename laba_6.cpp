@@ -119,5 +119,3 @@ int main()
 
 
 }
-
-// this is a test string :)
