@@ -28,27 +28,61 @@ int fill_Mat(int x, int y, int matrix[100][100])
     return matrix[x][y];
 }
 
-/*int Same_column(int x, int y, int mat[100][100], int count, bool flag)
+bool is_Prime(int x)
+{
+    for (int i = 2; i < sqrt(x),i++;)
+    {
+        if (abs(x) % i == 0)
+        {
+            return true;
+            break;
+        }
+    }
+    return false;
+}
+
+bool prime_numeral_exist(int x, int y, int matrix[100][100])
 {
     for (int i = 0; i < x; i++)
     {
-        if (count == y)
-        {
-            flag = true;
-        }
         for (int j = 0; j < y; j++)
         {
-            if (mat[j][i] == mat[j + 1][i])
+            if (is_Prime(matrix[i][j]))
             {
-                count++;
-            }
-            else
-            {
-                continue;
+                return true;
             }
         }
     }
-}*/
+    return false;
+}
+
+bool Same_column(int x, int y, int matrix[100][100])
+{
+    int count{ 0 };
+    for (int j = 0; j < y - 1; j++)
+    {
+        for (int k = 1; k < y; k++)
+        {
+            count = 0;
+            for (int i = 0; i < x; i++)
+            {
+                if (matrix[i][j] != matrix[i][j + k])
+                {
+                    continue;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+            if (count == x)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 
 int main()
@@ -67,14 +101,22 @@ int main()
 
     fill_Mat(lines, columns, mat);
 
-    for (int i = 0; i < lines; i++)
+    if (Same_column(lines,columns,mat) && prime_numeral_exist(lines,columns,mat))
+    {
+        cout << 228;
+    }
+
+
+
+    /*for (int i = 0; i < lines; i++)
     {
         for (int j = 0; j < columns; j++)
         {
             cout << mat[i][j] << " ";
         }
         cout << endl;
-    }
+    }*/
+
 
 }
 
