@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ int fill_Mat(int x, int y, int matrix[100][100])
     {
         for (int j = 0; j < y; j++)
         {
-            cout << "Введите элемент " << i+1 << " строки " << j+1 << " столбца." << endl;
+            cout << "Введите элемент " << i + 1 << " строки " << j + 1 << " столбца." << endl;
             cin >> matrix[i][j];
         }
     }
@@ -108,16 +109,14 @@ int main()
     int lines{};
     int columns{};
     int mat[100][100];
-    bool Flag_column = false;
 
     cout << "Введите количество строк" << endl;
     cin >> lines;
-
     cout << "Введите количество столбцов" << endl;
     cin >> columns;
 
     fill_Mat(lines, columns, mat);
-    
+
     if (Same_column(lines, columns, mat) && prime_numeral_exist(lines, columns, mat))
     {
         sort_lines(lines, columns, mat);
