@@ -3,17 +3,37 @@
 #include <fstream>
 
 using namespace std;
+int Sum(int a, int b)
+{
+    return a + b;
+}
+
+int Sum(int a, int b, int c)
+{
+    return a + b + c;
+}
+
+double Sum(double a, double b)
+{
+    return a + b;
+}
+
+double Sum(double a, double b, double c)
+{
+    return a + b + c;
+}
 
 int fill_Mat(int x, int y, int matrix[100][100])
 {
+    ifstream in("input.txt");
     for (int i = 0; i < x; i++)
     {
         for (int j = 0; j < y; j++)
         {
-            cout << "Введите элемент " << i + 1 << " строки " << j + 1 << " столбца." << endl;
-            cin >> matrix[i][j];
+            in >> matrix[i][j];
         }
     }
+    in.close();
     return matrix[x][y];
 }
 
@@ -102,7 +122,6 @@ void sort_lines(int x, int y, int matrix[100][100])
     }
 }
 
-
 int main()
 {
     setlocale(LC_ALL, "rus");
@@ -135,5 +154,18 @@ int main()
         }
         cout << endl;
     }
+    /*int x, y, z;
+    double i, j, k;
+    cin >> x;
+    cin >> y;
+    cin >> z;
+    cin >> i;
+    cin >> j;
+    cin >> k;
+    cout << Sum(x, y) << endl;
+    cout << Sum(x, y, z) << endl;
+    cout << Sum(i, j) << endl;
+    cout << Sum(i, j, k) << endl;*/
+
 
 }
